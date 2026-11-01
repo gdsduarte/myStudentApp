@@ -3,6 +3,7 @@
 - **Name:** Guilherme Duarte da Silva
 - **Student number:** 10577768
 - **Framework:** Ionic + React
+- **GitHub:** https://github.com/gdsduarte/myStudentApp
 
 ## How to run
 
@@ -36,7 +37,7 @@ ionic serve
 
 Home page, and after marking two assignments as done (with the toast):
 
-<img src="screenshot/lab-1/Screenshot%202026-10-17%20234305.png" alt="Lab 1 home" width="220"> <img src="screenshot/lab-1/Screenshot%202026-10-17%20234331.png" alt="Lab 1 assignments done" width="220">
+<table><tr><td><img src="screenshot/lab-1/Screenshot%202026-10-17%20234305.png" alt="Lab 1 home" width="220"></td><td><img src="screenshot/lab-1/Screenshot%202026-10-17%20234331.png" alt="Lab 1 assignments done" width="220"></td></tr></table>
 
 ---
 
@@ -55,18 +56,15 @@ Home page, and after marking two assignments as done (with the toast):
 
 Greeting with the name input:
 
-<img src="screenshot/lab-2/Screenshot%202026-11-01%20224743.png" width="220"> 
-<img src="screenshot/lab-2/Screenshot%202026-11-01%20224836.png" width="220">
+<table><tr><td><img src="screenshot/lab-2/Screenshot%202026-11-01%20224743.png" width="220"></td><td><img src="screenshot/lab-2/Screenshot%202026-11-01%20224836.png" width="220"></td></tr></table>
 
 Events list (joined events show "Leave") and the event details page:
 
-<img src="screenshot/lab-2/Screenshot%202026-11-01%20224522.png" width="220"> 
-<img src="screenshot/lab-2/Screenshot%202026-11-01%20224540.png" width="220">
+<table><tr><td><img src="screenshot/lab-2/Screenshot%202026-11-01%20224522.png" width="220"></td><td><img src="screenshot/lab-2/Screenshot%202026-11-01%20224540.png" width="220"></td></tr></table>
 
 Search result and empty search message:
 
-<img src="screenshot/lab-2/Screenshot%202026-11-01%20224649.png" width="220"> 
-<img src="screenshot/lab-2/Screenshot%202026-11-01%20224716.png" width="220">
+<table><tr><td><img src="screenshot/lab-2/Screenshot%202026-11-01%20224649.png" width="220"></td><td><img src="screenshot/lab-2/Screenshot%202026-11-01%20224716.png" width="220"></td></tr></table>
 
 ---
 
