@@ -69,3 +69,59 @@ Search result and empty search message:
 ---
 
 ## Lab 3
+
+### What changed from Lab 2
+
+- **Bottom tabs:** the app now has an `IonTabs` bar with four tabs: **Home**, **Events**, **Assignments** and **Modules** (`src/components/BottomTabs.tsx`). `App.tsx` routes the tab paths to it and keeps `/event/:id` as a separate page.
+- **Home page** (`Home.tsx`) now only has the header, the info alert and the welcome section with the "Your name" input.
+- **Assignments page** (`Assignments.tsx`) and **Modules page** (`Modules.tsx`): the Lab 1 assignment cards and the modules list moved to their own pages. Modules now come from `src/data/modules.ts`.
+- **Events page** (`Events.tsx`) is the new Lab 3 screen. The events are no longer a hard-coded array: they are fetched from `public/events.json` (the old `src/data/events.ts` is not used for the list any more).
+- **New events data:** each event has a text id (`"evt-01"`), `title`, `date`, `time`, `location` and `description`. The old category field was removed.
+- **Event Details page** now fetches `/events.json` and finds the event with the id from the URL, instead of reading the old array. Join/Leave stays at the bottom.
+- **New package:** `@capacitor/preferences` for saving favourites.
+- **Removed:** the unused `ExploreContainer` component and `Home.css`. The old search input and the localStorage join code were kept (Join/Leave) but now use the text ids.
+
+### Features
+
+- **Fetch with `useEffect`:** the Events page loads `/events.json` when it opens. It checks the HTTP status, the JSON and that every event has the expected fields. The effect only runs again when Retry is pressed, so it does not loop.
+- **Dynamic cards:** one `IonCard` per event (key = event id) showing title, date, time, location and description, plus the Details and Join/Leave buttons from Lab 2.
+- **Favourites:** a heart icon on each card (filled = saved, outline = not saved) with an `aria-label`. Several events can be saved at the same time, and toggling one keeps the others.
+- **Favourites view:** an "All events / Favourites (n)" segment shows only the saved events.
+- **Search:** `IonSearchbar` filters by title or location (case-insensitive, whitespace trimmed), also inside the favourites view.
+- **States and errors:** loading spinner, fetch error with a Retry button, and separate messages for no events, no search matches and no favourites. Problems reading or saving Preferences show a toast.
+
+### How favourites are stored
+
+`Preferences` only saves strings, so the favourites are saved as a JSON array of event ids under the key `favourites`, for example:
+
+```json
+["evt-01","evt-03"]
+```
+
+On startup the app reads the key and uses `JSON.parse`. If nothing is saved it starts with no favourites. If the value is invalid, it starts with none and shows a message. The list is only saved when the user taps a heart, so an empty list can never overwrite saved data before it is loaded.
+
+Joined events (Join/Leave) still use `localStorage` with the key `joinedIds`, as in Lab 2.
+
+### Screenshots
+
+Events list with no favourites, then two favourites saved (filled hearts):
+
+<table><tr><td><img src="screenshot/lab-3/Screenshot%202026-11-08%20231200.png" width="220"></td><td><img src="screenshot/lab-3/Screenshot%202026-11-08%20231221.png" width="220"></td></tr></table>
+
+Removing one favourite keeps the other, and searching "Campus" in all events:
+
+<table><tr><td><img src="screenshot/lab-3/Screenshot%202026-11-08%20231244.png" width="220"></td><td><img src="screenshot/lab-3/Screenshot%202026-11-08%20231318.png" width="220"></td></tr></table>
+
+Search inside the Favourites view with no match:
+
+<table><tr><td><img src="screenshot/lab-3/Screenshot%202026-11-08%20231335.png" width="220"></td></tr></table>
+
+Loading state and fetch error with the Retry button:
+
+<table><tr><td><img src="screenshot/lab-3/Screenshot%202026-11-08%20232239.png" width="220"></td><td><img src="screenshot/lab-3/Screenshot%202026-11-08%20231453.png" width="220"></td></tr></table>
+
+---
+
+## AI assistance
+
+AI was only used to create and update this README file. All the app code was written by me and the copilot inline suggestions.
