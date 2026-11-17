@@ -29,7 +29,7 @@ const Assignments: React.FC = () => {
       {/* Assignments (Lab 1) */}
       <IonHeader>
         <IonToolbar color="primary">
-          <IonTitle>Assignments</IonTitle>
+          <IonTitle>Assignmentssss</IonTitle>
         </IonToolbar>
       </IonHeader>
 
